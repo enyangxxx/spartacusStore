@@ -8,9 +8,10 @@ import { B2cStorefrontModule } from '@spartacus/storefront';
 import { StaticPageComponent } from './static-page/static-page.component';
 import { CustomRoutingModule } from './custom-routing/custom-routing.module';
 import { SaleComponent } from './sale/sale.component';
-import { PRODUCT_NORMALIZER } from '@spartacus/core';
+import { PRODUCT_NORMALIZER, UrlModule } from '@spartacus/core';
 import { ProductNameNormalizer } from './product-name.normalizer';
 import { ProductCategoryNormalizer } from './product-category.normalizer';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { ProductCategoryNormalizer } from './product-category.normalizer';
         level: '2.1'
       }
     }),
-    CustomRoutingModule
+    CustomRoutingModule,
+    RouterModule,
+    UrlModule
   ],
   providers: [
     { provide: PRODUCT_NORMALIZER, useClass: ProductNameNormalizer, multi: true },

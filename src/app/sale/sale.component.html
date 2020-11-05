@@ -1,1 +1,6 @@
-<p>sale works!</p>
+<div>
+    <a [routerLink]="{ cxRoute: 'product', params: { code: '300938', nameForUrl: 'photosmart-e317-digital-camera' }} | cxUrl">Product</a>
+</div>
+<div>
+    <button type="button" (click)="goToRandomProduct()">I'm feeling lucky</button>
+</div>
