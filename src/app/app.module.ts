@@ -11,13 +11,16 @@ import { SaleComponent } from './sale/sale.component';
 import { PRODUCT_NORMALIZER, UrlModule } from '@spartacus/core';
 import { ProductNameNormalizer } from './product-name.normalizer';
 import { ProductCategoryNormalizer } from './product-category.normalizer';
-import { RouterModule } from '@angular/router';
+import { RouterModule, UrlSerializer } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
+import { ProductManufacturerNormalizer } from './product-manufacturer.normalizer';
 
 @NgModule({
   declarations: [
     AppComponent,
     StaticPageComponent,
-    SaleComponent
+    SaleComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { RouterModule } from '@angular/router';
       },
       context: {
         baseSite: ['electronics-spa'],
-        customParam: ['test'],
+        customParam: ['enyang'],
         urlParameters: ['customParam','baseSite', 'language', 'currency']
       },
       i18n: {
@@ -49,7 +52,8 @@ import { RouterModule } from '@angular/router';
   ],
   providers: [
     { provide: PRODUCT_NORMALIZER, useClass: ProductNameNormalizer, multi: true },
-    { provide: PRODUCT_NORMALIZER, useClass: ProductCategoryNormalizer, multi: true }
+    { provide: PRODUCT_NORMALIZER, useClass: ProductCategoryNormalizer, multi: true },
+    { provide: PRODUCT_NORMALIZER, useClass: ProductManufacturerNormalizer, multi: true}
   ],
   bootstrap: [AppComponent]
 })

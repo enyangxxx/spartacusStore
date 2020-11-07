@@ -1,0 +1,16 @@
+<div class="container">
+    <div>
+        <h3>Spartacus Store</h3>
+        <p>
+            Address: Lofotenstraße 20c, 22145 Hamburg
+            <br>
+            Tel: 0123 456 89000
+        </p>
+    </div>
+    <div>
+        <div>
+            <a [routerLink]="{ cxRoute: 'product', params: { code: '300938', nameForUrl: 'photosmart' }} | cxUrl">Product</a>
+        </div>
+        <button (click)="goToCart()">Your cart</button>
+    </div>
+</div>

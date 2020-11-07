@@ -27,7 +27,6 @@ export class SaleComponent implements OnInit {
       const randomProduct = products[Math.floor(Math.random() * products.length)];
       this.routingService.go({ cxRoute: 'product', params: { code: randomProduct.code, nameForUrl: randomProduct.nameForUrl }});
     });
-    
   }
 
 }

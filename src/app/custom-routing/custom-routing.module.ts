@@ -5,10 +5,12 @@ import { StaticPageComponent } from '../static-page/static-page.component';
 import { CmsPageGuard, PageLayoutComponent } from '@spartacus/storefront';
 import { SaleComponent } from '../sale/sale.component';
 import { ConfigModule, OccConfig, RoutingConfig } from '@spartacus/core';
+import { ContactComponent } from '../contact/contact.component';
 
 const STATIC_ROUTES: Routes = [
   { path: 'static-page', component: StaticPageComponent, canActivate: [CmsPageGuard], data: {pageLabel: 'cart'}},
   { path: 'alias/hilfe', component: PageLayoutComponent, canActivate: [CmsPageGuard], data: {pageLabel: '/faq'}},
+  { path: 'contact', component: ContactComponent, canActivate: [CmsPageGuard]},
   { path: 'sale', component: SaleComponent, canActivate: [CmsPageGuard], data: {pageLabel: '/sale'}}
 ]
 
@@ -22,12 +24,13 @@ const STATIC_ROUTES: Routes = [
         routes: {
           product: {
             paths: [
-              'electronics/cameras/:firstCategory/:manufacturer/:productCode/:name',
-              'electronics/cameras/:manufacturer/:productCode/:name',
-              'electronics/cameras/:productCode/:name',
-              'electronics/cameras/:productCode'
+              'electronics/cameras/oldschool/:firstCategory/:secondCategory/:manufacturer/:productCode/:name',
+              'electronics/cameras/oldschool/:firstCategory/:manufacturer/:productCode/:name',
+              'electronics/cameras/oldschool/:manufacturer/:productCode/:name',
+              'electronics/cameras/oldschool/:productCode/:name',
+              'electronics/cameras/oldschool/:productCode'
             ],
-            paramsMapping: { name: 'nameForUrl'}
+            paramsMapping: { name: 'nameForUrl', manufacturer: 'manufacturerForUrl' }
           }
         }
       }
