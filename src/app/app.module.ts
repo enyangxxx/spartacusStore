@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { translations, translationChunksConfig } from '@spartacus/assets';
 import { B2cStorefrontModule } from '@spartacus/storefront';
 import { StaticPageComponent } from './static-page/static-page.component';
-import { CustomRoutingModule } from './custom-routing/custom-routing.module';
+import { CustomRoutingModule } from './configuration/custom-routing.module';
 import { SaleComponent } from './sale/sale.component';
 import { PRODUCT_NORMALIZER, UrlModule } from '@spartacus/core';
 import { ProductNameNormalizer } from './product-name.normalizer';
@@ -14,6 +14,12 @@ import { ProductCategoryNormalizer } from './product-category.normalizer';
 import { RouterModule, UrlSerializer } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { ProductManufacturerNormalizer } from './product-manufacturer.normalizer';
+import { CheckoutConfigurationModule } from './configuration/checkout.module';
+import { I18nConfigurationModule } from './configuration/i18n.module';
+import { LayoutConfigurationModule } from './configuration/layout.module';
+import { OutletsModule } from './outlets/outlets.module';
+import { ComponentsModule } from './configuration/components.module';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -37,16 +43,22 @@ import { ProductManufacturerNormalizer } from './product-manufacturer.normalizer
         customParam: ['enyang'],
         urlParameters: ['customParam','baseSite', 'language', 'currency']
       },
-      i18n: {
-        resources: translations,
-        chunks: translationChunksConfig,
-        fallbackLang: 'en'
-      },
+      //i18n: {
+      //  resources: translations,
+      //  chunks: translationChunksConfig,
+      //  fallbackLang: 'en'
+      //},
       features: {
         level: '2.1'
       }
     }),
+    CheckoutConfigurationModule,
+    I18nConfigurationModule,
+    LayoutConfigurationModule,
     CustomRoutingModule,
+    OutletsModule,
+    ComponentsModule,
+    ServicesModule,
     RouterModule,
     UrlModule
   ],

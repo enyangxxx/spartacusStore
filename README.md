@@ -1,7 +1,12 @@
 # spartacusStore
 
 Learning objective:
-- Routing in Spartacus
+- Routing
+- Service Extensions
+- SEO-friendly URL Creation
+- Outlets
+- Spartacus Style Customization
+- Various Configurations for Spartacus Storefront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
